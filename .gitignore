@@ -12,7 +12,7 @@ legacy/
 
 # Local env / Docker download folder
 .env
-downloads/
+/downloads/
 
 # Editor
 .vscode/*
