@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@import "./themes.css";
+
+@theme {
+  --color-surface: var(--color-surface);
+  --color-surface-elevated: var(--color-surface-elevated);
+  --color-bg: var(--color-bg);
+  --color-text: var(--color-text);
+  --color-muted: var(--color-muted);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
+  --color-border: var(--color-border);
+  --color-success: var(--color-success);
+  --color-danger: var(--color-danger);
+  --color-warning: var(--color-warning);
+}
+
+body {
+  font-family: "Lato", system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-3 py-1.5 text-sm font-medium transition-colors;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:opacity-90;
+}
+
+.btn-secondary {
+  @apply border border-border bg-surface text-text hover:bg-surface-elevated;
+}
+
+.btn-danger {
+  @apply bg-danger text-white hover:opacity-90;
+}
+
+.card {
+  @apply rounded-lg border border-border bg-surface shadow-sm;
+}
+
+.input {
+  @apply w-full rounded-md border border-border bg-surface px-3 py-2 text-sm text-text outline-none focus:border-primary focus:ring-1 focus:ring-primary;
+}
+
+.badge {
+  @apply inline-flex rounded px-2 py-0.5 text-xs font-medium;
+}
+
+.badge-active {
+  @apply bg-success/20 text-success;
+}
+
+.badge-waiting {
+  @apply bg-warning/20 text-warning;
+}
+
+.badge-error {
+  @apply bg-danger/20 text-danger;
+}
+
+.modal-overlay {
+  @apply fixed inset-0 bg-black/50;
+}
+
+.modal-shell {
+  @apply fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-4 pt-16;
+}
+
+.modal-panel {
+  @apply relative mx-auto max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-lg border border-border bg-surface p-6 shadow-xl;
+}
+
+.modal-panel-lg {
+  @apply max-w-4xl;
+}

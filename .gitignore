@@ -1,6 +1,27 @@
-.DS_STORE
-.idea
-.git
-debug.log
-stats.json
+# Dependencies
 node_modules
+dist
+dist-ssr
+*.local
+
+# Build
+coverage
+
+# Legacy (excluded from Docker context)
+legacy/
+
+# Local env / Docker download folder
+.env
+downloads/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

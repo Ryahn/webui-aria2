@@ -1,0 +1,331 @@
+{
+  "async-dns-server": {
+    "desc": "Comma separated list of DNS server address used in asynchronous DNS resolver. Usually asynchronous DNS resolver reads DNS server addresses from /etc/resolv.conf. When this option is used, it uses DNS servers specified in this option instead of ones in /etc/resolv.conf. You can specify both IPv4 and IPv6 address. This option is useful when the system does not have /etc/resolv.conf and user does not have the permission to create it.",
+    "val": ""
+  },
+  "auto-save-interval": {
+    "desc": "Save a control file(\\*.aria2) every SEC seconds. If 0 is given, a control file is not saved during download. aria2 saves a control file when it stops regardless of the value. The possible values are between 0 to 600. Default: 60",
+    "val": 60
+  },
+  "bt-lpd-interface": {
+    "desc": "Use given interface for Local Peer Discovery. If this option is not specified, the default interface is chosen. You can specify interface name and IP address. Possible Values: interface, IP address",
+    "options": [
+      "interface",
+      "IP address"
+    ],
+    "val": ""
+  },
+  "bt-max-open-files": {
+    "desc": "Specify maximum number of files to open in multi-file BitTorrent/Metalink download globally. Default: 100",
+    "val": 100
+  },
+  "ca-certificate": {
+    "desc": "Use the certificate authorities in FILE to verify the peers. The certificate file must be in PEM format and can contain multiple CA certificates. Use option to enable verification. If you build with OpenSSL or the recent version of GnuTLS which has gnutls_certificate_set_x509_system_trust() function and the library is properly configured to locate the system-wide CA certificates store, aria2 will automatically load those certificates at the startup. *WinTLS* and *AppleTLS* do not support this option. Instead you will have to import the certificate into the OS trust store.",
+    "val": ""
+  },
+  "certificate": {
+    "desc": "Use the client certificate in FILE. The certificate must be either in PKCS12 (.p12, .pfx) or in PEM format. PKCS12 files must contain the certificate, a key and optionally a chain of additional certificates. Only PKCS12 files with a blank import password can be opened! When using PEM, you have to specify the private key via as well. .. note:: *AppleTLS* users should use the KeyChain Access utility to import the client certificate and get the SHA-1 fingerprint from the Information dialog corresponding to that certificate. To start aria2c use `--certificate= `. Alternatively PKCS12 files are also supported. PEM files, however, are not supported.",
+    "val": ""
+  },
+  "conf-path": {
+    "desc": "Change the configuration file path to PATH. Default: $HOME/.aria2/aria2.conf if present, otherwise $XDG_CONFIG_HOME/aria2/aria2.conf.",
+    "val": "$HOME/"
+  },
+  "console-log-level": {
+    "desc": "Set log level to output to console. LEVEL is either debug, info, notice, warn or error. Default: notice",
+    "val": "notice"
+  },
+  "dht-entry-point": {
+    "desc": "Set host and port as an entry point to IPv4 DHT network.",
+    "val": ""
+  },
+  "dht-entry-point6": {
+    "desc": "Set host and port as an entry point to IPv6 DHT network.",
+    "val": ""
+  },
+  "dht-file-path": {
+    "desc": "Change the IPv4 DHT routing table file to PATH. Default: $HOME/.aria2/dht.dat if present, otherwise $XDG_CACHE_HOME/aria2/dht.dat.",
+    "val": "$HOME/"
+  },
+  "dht-file-path6": {
+    "desc": "Change the IPv6 DHT routing table file to PATH. Default: $HOME/.aria2/dht6.dat if present, otherwise $XDG_CACHE_HOME/aria2/dht6.dat.",
+    "val": "$HOME/"
+  },
+  "dht-listen-addr6": {
+    "desc": "Specify address to bind socket for IPv6 DHT. It should be a global unicast IPv6 address of the host.",
+    "val": ""
+  },
+  "dht-listen-port": {
+    "desc": "Set UDP listening port used by DHT(IPv4, IPv6) and UDP tracker. Multiple ports can be specified by using ,, for example: 6881,6885. You can also use - to specify a range: 6881-6999. , and - can be used together. Default: 6881-6999 Make sure that the specified ports are open for incoming UDP traffic.",
+    "val": "6881-6999 Make sure that the specified ports are open for incoming UDP traffic"
+  },
+  "dht-message-timeout": {
+    "desc": "Set timeout in seconds. Default: 10",
+    "val": 10
+  },
+  "disk-cache": {
+    "desc": "Enable disk cache. If SIZE is 0, the disk cache is disabled. This feature caches the downloaded data in memory, which grows to at most SIZE bytes. The cache storage is created for aria2 instance and shared by all downloads. The one advantage of the disk cache is reduce the disk I/O because the data are written in larger unit and it is reordered by the offset of the file. If hash checking is involved and the data are cached in memory, we don't need to read them from the disk. SIZE can include K or M (1K = 1024, 1M = 1024K). Default: 16M",
+    "val": "16M"
+  },
+  "download-result": {
+    "desc": "This option changes the way Download Results is formatted. If OPT is default, print GID, status, average download speed and path/URI. If multiple files are involved, path/URI of first requested file is printed and remaining ones are omitted. If OPT is full, print GID, status, average download speed, percentage of progress and path/URI. The percentage of progress and path/URI are printed for each requested file in each row. If OPT is hide, Download Results is hidden. Default: default",
+    "val": "default",
+    "options": [
+      "default",
+      "full"
+    ]
+  },
+  "dscp": {
+    "desc": "Set DSCP value in outgoing IP packets of BitTorrent traffic for QoS. This parameter sets only DSCP bits in TOS field of IP packets, not the whole field. If you take values from */usr/include/netinet/ip.h* divide them by 4 (otherwise values would be incorrect, e.g. your CS1 class would turn into CS4). If you take commonly used values from RFC, network vendors' documentation, Wikipedia or any other source, use them as they are.",
+    "val": ""
+  },
+  "enable-rpc": {
+    "desc": "Enable JSON-RPC/XML-RPC server. It is strongly recommended to set secret authorization token using option. See also option. Default: false",
+    "options": [
+      "true",
+      "false"
+    ],
+    "val": false
+  },
+  "event-poll": {
+    "desc": "Specify the method for polling events. The possible values are epoll, kqueue, port, poll and select. For each epoll, kqueue, port and poll, it is available if system supports it. epoll is available on recent Linux. kqueue is available on various \\*BSD systems including Mac OS X. port is available on Open Solaris. The default value may vary depending on the system you use.",
+    "val": ""
+  },
+  "interface": {
+    "desc": "Bind sockets to given interface. You can specify interface name, IP address and host name. Possible Values: interface, IP address, host name If an interface has multiple addresses, it is highly recommended to specify IP address explicitly. See also . If your system doesn't have :manpage:`getifaddrs(3)`, this option doesn't accept interface name.",
+    "options": [
+      "interface",
+      "IP address",
+      "host name If an interface has multiple addresses",
+      "it is highly recommended to specify IP address explicitly"
+    ],
+    "val": ""
+  },
+  "keep-unfinished-download-result": {
+    "desc": "Keep unfinished download results even if doing so exceeds . This is useful if all unfinished downloads must be saved in session file (see option). Please keep in mind that there is no upper bound to the number of unfinished download result to keep. If that is undesirable, turn this option off. Default: true",
+    "options": [
+      "true",
+      "false"
+    ],
+    "val": true
+  },
+  "listen-port": {
+    "desc": "Set TCP port number for BitTorrent downloads. Multiple ports can be specified by using ,, for example: 6881,6885. You can also use - to specify a range: 6881-6999. , and - can be used together: 6881-6889,6999. Default: 6881-6999 Make sure that the specified ports are open for incoming TCP traffic.",
+    "val": "6881-6999 Make sure that the specified ports are open for incoming TCP traffic"
+  },
+  "load-cookies": {
+    "desc": "Load Cookies from FILE using the Firefox3 format (SQLite3), Chromium/Google Chrome (SQLite3) and the Mozilla/Firefox(1.x/2.x)/Netscape format. If aria2 is built without libsqlite3, then it doesn't support Firefox3 and Chromium/Google Chrome cookie format.",
+    "val": ""
+  },
+  "log": {
+    "val": "",
+    "desc": "The file name of the log file. If - is specified, log is written to stdout. If empty string(\"\") is specified, or this option is omitted, no log is written to disk at all."
+  },
+  "log-level": {
+    "desc": "Set log level to output. LEVEL is either debug, info, notice, warn or error. Default: debug",
+    "val": "debug",
+    "options": [
+      "debug",
+      "info",
+      "notice",
+      "warn",
+      "error"
+    ]
+  },
+  "max-concurrent-downloads": {
+    "val": "5 limits the number of items which are downloaded concurrently",
+    "desc": "Set the maximum number of parallel downloads for every queue item. See also the option. Default: 5 limits the number of items which are downloaded concurrently. and affect the number of connections inside each item. Imagine that you have an input file (see option) like this: http://example.com/foo http://example.com/bar Here is 2 download items. aria2 can download these items concurrently if the value more than or equal 2 is given to . In each download item, you can configure the number of connections using and/or , etc."
+  },
+  "max-download-result": {
+    "val": 1000,
+    "desc": "Set maximum number of download result kept in memory. The download results are completed/error/removed downloads. The download results are stored in FIFO queue and it can store at most NUM download results. When queue is full and new download result is created, oldest download result is removed from the front of the queue and new one is pushed to the back. Setting big number in this option may result high memory consumption after thousands of downloads. Specifying 0 means no download result is kept. Note that unfinished downloads are kept in memory regardless of this option value. See option. Default: 1000"
+  },
+  "max-overall-download-limit": {
+    "val": 0,
+    "desc": "Set max overall download speed in bytes/sec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the download speed per download, use option. Default: 0"
+  },
+  "max-overall-upload-limit": {
+    "val": 0,
+    "desc": "Set max overall upload speed in bytes/sec. 0 means unrestricted. You can append K or M (1K = 1024, 1M = 1024K). To limit the upload speed per torrent, use option. Default: 0"
+  },
+  "min-tls-version": {
+    "desc": "Specify minimum SSL/TLS version to enable. Possible Values: TLSv1.1, TLSv1.2, TLSv1.3 Default: TLSv1.2",
+    "options": [
+      "TLSv1"
+    ],
+    "val": "TLSv1"
+  },
+  "multiple-interface": {
+    "desc": "Comma separated list of interfaces to bind sockets to. Requests will be split among the interfaces to achieve link aggregation. You can specify interface name, IP address and hostname. If is used, this option will be ignored. Possible Values: interface, IP address, hostname",
+    "options": [
+      "interface",
+      "IP address",
+      "hostname"
+    ],
+    "val": ""
+  },
+  "on-bt-download-complete": {
+    "desc": "For BitTorrent, a command specified in is called after download completed and seeding is over. On the other hand, this option set the command to be executed after download completed but before seeding. See `Event Hook`_ for more details about COMMAND. Possible Values: /path/to/command",
+    "options": [
+      "/path/to/command"
+    ],
+    "val": ""
+  },
+  "on-download-complete": {
+    "desc": "Set the command to be executed after download completed. See `Event Hook`_ for more details about COMMAND. See also option. Possible Values: /path/to/command",
+    "options": [
+      "/path/to/command"
+    ],
+    "val": ""
+  },
+  "on-download-error": {
+    "desc": "Set the command to be executed after download aborted due to error. See `Event Hook`_ for more details about COMMAND. See also option. Possible Values: /path/to/command",
+    "options": [
+      "/path/to/command"
+    ],
+    "val": ""
+  },
+  "on-download-pause": {
+    "desc": "Set the command to be executed after download was paused. See `Event Hook`_ for more details about COMMAND. Possible Values: /path/to/command",
+    "options": [
+      "/path/to/command"
+    ],
+    "val": ""
+  },
+  "on-download-start": {
+    "desc": "Set the command to be executed after download got started. See `Event Hook`_ for more details about COMMAND. Possible Values: /path/to/command",
+    "options": [
+      "/path/to/command"
+    ],
+    "val": ""
+  },
+  "on-download-stop": {
+    "desc": "Set the command to be executed after download stopped. You can override the command to be executed for particular download result using and . If they are specified, command specified in this option is not executed. See `Event Hook`_ for more details about COMMAND. Possible Values: /path/to/command",
+    "options": [
+      "/path/to/command"
+    ],
+    "val": ""
+  },
+  "optimize-concurrent-downloads": {
+    "desc": "Optimizes the number of concurrent downloads according to the bandwidth available. aria2 uses the download speed observed in the previous downloads to adapt the number of downloads launched in parallel according to the rule N = A + B Log10(speed in Mbps). The coefficients A and B can be customized in the option arguments with A and B separated by a colon. The default values (A=5, B=25) lead to using typically 5 parallel downloads on 1Mbps networks and above 50 on 100Mbps networks. The number of parallel downloads remains constrained under the maximum defined by the parameter. Default: false",
+    "val": "false"
+  },
+  "peer-agent": {
+    "val": "aria2/$MAJOR",
+    "desc": "Specify the string used during the bitorrent extended handshake for the peer's client version. Default: aria2/$MAJOR.$MINOR.$PATCH, $MAJOR, $MINOR and $PATCH are replaced by major, minor and patch version number respectively. For instance, aria2 version 1.18.8 has peer agent aria2/1.18.8."
+  },
+  "peer-id-prefix": {
+    "desc": "Specify the prefix of peer ID. The peer ID in BitTorrent is 20 byte length. If more than 20 bytes are specified, only first 20 bytes are used. If less than 20 bytes are specified, random byte data are added to make its length 20 bytes. Default: A2-$MAJOR-$MINOR-$PATCH-, $MAJOR, $MINOR and $PATCH are replaced by major, minor and patch version number respectively. For instance, aria2 version 1.18.8 has prefix ID A2-1-18-8-.",
+    "val": "A2-$MAJOR-$MINOR-$PATCH-, $MAJOR, $MINOR and $PATCH are replaced by major, minor and patch version number respectively"
+  },
+  "private-key": {
+    "desc": "Use the private key in FILE. The private key must be decrypted and in PEM format. An encrypted key may cause undefined behavior. See also option.",
+    "val": ""
+  },
+  "rlimit-nofile": {
+    "desc": "Set the soft limit of open file descriptors. This open will only have effect when: a) The system supports it (posix) b) The limit does not exceed the hard limit. c) The specified limit is larger than the current soft limit. This is equivalent to setting nofile via ulimit, except that it will never decrease the limit. This option is only available on systems supporting the rlimit API.",
+    "val": ""
+  },
+  "rpc-allow-origin-all": {
+    "desc": "Add Access-Control-Allow-Origin header field with value * to the RPC response. Default: false",
+    "options": [
+      "true",
+      "false"
+    ],
+    "val": false
+  },
+  "rpc-certificate": {
+    "desc": "Use the certificate in FILE for RPC server. The certificate must be either in PKCS12 (.p12, .pfx) or in PEM format. PKCS12 files must contain the certificate, a key and optionally a chain of additional certificates. Only PKCS12 files with a blank import password can be opened! When using PEM, you have to specify the private key via as well. Use option to enable encryption. .. note:: *AppleTLS* users should use the KeyChain Access utility to first generate a self-signed SSL-Server certificate, e.g. using the wizard, and get the SHA-1 fingerprint from the Information dialog corresponding to that new certificate. To start aria2c with use `--rpc-certificate= `. Alternatively PKCS12 files are also supported. PEM files, however, are not supported.",
+    "val": ""
+  },
+  "rpc-listen-all": {
+    "desc": "Listen incoming JSON-RPC/XML-RPC requests on all network interfaces. If false is given, listen only on local loopback interface. Default: false",
+    "options": [
+      "true",
+      "false"
+    ],
+    "val": false
+  },
+  "rpc-listen-port": {
+    "desc": "Specify a port number for JSON-RPC/XML-RPC server to listen to. Possible Values: 1024 -65535 Default: 6800",
+    "options": [
+      "1024 -65535 Default: 6800"
+    ],
+    "val": 6800
+  },
+  "rpc-max-request-size": {
+    "desc": "Set max size of JSON-RPC/XML-RPC request. If aria2 detects the request is more than SIZE bytes, it drops connection. Default: 2M",
+    "val": "2M"
+  },
+  "rpc-passwd": {
+    "desc": "Set JSON-RPC/XML-RPC password. .. Warning:: option will be deprecated in the future release. Migrate to option as soon as possible.",
+    "val": ""
+  },
+  "rpc-private-key": {
+    "desc": "Use the private key in FILE for RPC server. The private key must be decrypted and in PEM format. Use option to enable encryption. See also option.",
+    "val": ""
+  },
+  "rpc-secret": {
+    "desc": "Set RPC secret authorization token. Read :ref:`rpc_auth` to know how this option value is used.",
+    "val": ""
+  },
+  "rpc-secure": {
+    "desc": "RPC transport will be encrypted by SSL/TLS. The RPC clients must use https scheme to access the server. For WebSocket client, use wss scheme. Use and options to specify the server certificate and private key.",
+    "options": [
+      "true",
+      "false"
+    ],
+    "val": false
+  },
+  "rpc-user": {
+    "desc": "Set JSON-RPC/XML-RPC user. .. Warning:: option will be deprecated in the future release. Migrate to option as soon as possible. Advanced Options ~~~~~~~~~~~~~~~~",
+    "val": ""
+  },
+  "save-cookies": {
+    "val": "",
+    "desc": "Save Cookies to FILE in Mozilla/Firefox(1.x/2.x)/ Netscape format. If FILE already exists, it is overwritten. Session Cookies are also saved and their expiry values are treated as 0. Possible Values: /path/to/file",
+    "options": [
+      "/path/to/file"
+    ]
+  },
+  "save-not-found": {
+    "desc": "Save download with option even if the file was not found on the server. This option also saves control file in that situations. Default: true",
+    "options": [
+      "true",
+      "false"
+    ],
+    "val": true
+  },
+  "save-session": {
+    "val": "",
+    "desc": "Save error/unfinished downloads to FILE on exit. You can pass this output file to aria2c with option on restart. If you like the output to be gzipped append a .gz extension to the file name. Please note that downloads added by and RPC method and whose metadata could not be saved as a file are not saved. Downloads removed using and will not be saved. GID is also saved with , but there are some restrictions, see below. Normally, GID of the download itself is saved. But some downloads use metadata (e.g., BitTorrent and Metalink). In this case, there are some restrictions. magnet URI, and followed by torrent download GID of BitTorrent metadata download is saved. URI to torrent file, and followed by torrent download GID of torrent file download is saved. URI to metalink file, and followed by file downloads described in metalink file GID of metalink file download is saved. local torrent file GID of torrent download is saved. local metalink file Any meaningful GID is not saved."
+  },
+  "save-session-interval": {
+    "desc": "Save error/unfinished downloads to a file specified by option every SEC seconds. If 0 is given, file will be saved only when aria2 exits. Default: 0",
+    "val": 0
+  },
+  "server-stat-if": {
+    "desc": "Specify the file name to load performance profile of the servers. The loaded data will be used in some URI selector such as feedback. See also option. See `Server Performance Profile`_ subsection below for file format.",
+    "val": ""
+  },
+  "server-stat-of": {
+    "val": "",
+    "desc": "Specify the file name to which performance profile of the servers is saved. You can load saved data using option. See `Server Performance Profile`_ subsection below for file format."
+  },
+  "server-stat-timeout": {
+    "desc": "Specifies timeout in seconds to invalidate performance profile of the servers since the last contact to them. Default: 86400 (24hours)",
+    "val": "86400 (24hours)"
+  },
+  "socket-recv-buffer-size": {
+    "desc": "Set the maximum socket receive buffer in bytes. Specifying 0 will disable this option. This value will be set to socket file descriptor using SO_RCVBUF socket option with setsockopt() call. Default: 0",
+    "val": 0
+  },
+  "stop-with-process": {
+    "desc": "Stop application when process PID is not running. This is useful if aria2 process is forked from a parent process. The parent process can fork aria2 with its own pid and when parent process exits for some reason, aria2 can detect it and shutdown itself.",
+    "val": ""
+  },
+  "summary-interval": {
+    "desc": "Set interval in seconds to output download progress summary. Setting 0 suppresses the output. Default: 60",
+    "val": 60
+  }
+}
